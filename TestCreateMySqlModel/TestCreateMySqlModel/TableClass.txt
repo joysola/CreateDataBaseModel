@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Dapper.Data;
+
+namespace {0}
+{{
+    /// <summary>
+    /// {4}
+    /// </summary>
+    [Table("{1}")]
+    public class {2}
+    {{
+{3}
+    }}
+}}
