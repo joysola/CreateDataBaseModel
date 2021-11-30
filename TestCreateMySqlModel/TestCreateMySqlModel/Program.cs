@@ -89,7 +89,7 @@ namespace TestCreateMySqlModel
                             dataType += "?";
                         }
                         // 4.默认值修改
-                        if (!string.IsNullOrEmpty(column.DefaultValue))
+                        if (!string.IsNullOrEmpty(column.DefaultValue) && column.DefaultValue != "NULL")
                         {
                             defaultValue = $" = {column.DefaultValue};";
                             if (column.DataType.NetDataTypeCSharpName == "decimal")
@@ -98,7 +98,7 @@ namespace TestCreateMySqlModel
                             }
                             if (column.DataType.IsString)
                             {
-                                defaultValue = $" = \"{ column.DefaultValue}\";";
+                                defaultValue = $" = \"{ column.DefaultValue.Replace("'","")}\";";
                             }
                         }
                         var newColumnName = column.Name.Humanize(LetterCasing.Title).Replace(" ", "_"); // 首字母大写
